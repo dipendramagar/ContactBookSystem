@@ -1,0 +1,28 @@
+CREATE DATABASE contactbook;
+USE contactbook;
+
+-- USERS TABLE
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    role ENUM('Admin','User') NOT NULL
+);
+
+INSERT INTO users(username,password,role) VALUES
+('admin','admin123','Admin'),
+('user1','user123','User');
+
+-- CONTACTS TABLE
+CREATE TABLE contacts (
+    cid INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20),
+    email VARCHAR(100),
+    address VARCHAR(200)
+);
+desc contacts;
+-- INSERT DATA
+INSERT INTO contacts(cid,name,phone,email,address) VALUES
+(1,'John Doe','9876543210','john@example.com','Kathmandu');
+select * from contacts;
